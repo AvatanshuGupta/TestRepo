@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Mini Quiz</h1>
+<form method="POST">
+    {% for key, q in questions.items() %}
+        <div class="question">
+            <p>{{ q.question }}</p>
+            {% for opt in q.options %}
+                <input type="radio" name="{{ key }}" value="{{ opt }}" required> {{ opt }}<br>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
